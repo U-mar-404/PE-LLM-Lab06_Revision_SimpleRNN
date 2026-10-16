@@ -66,6 +66,29 @@ Confusion matrix: TP = 10702, TN = 9079, FP = 3421, FN = 1798
 
 Results are noisy: SimpleRNN training is unstable on long sequences (vanishing gradients), so short sequences and fewer units tended to do better. This is the motivation for LSTM in the next lab.
 
+## Lab Questions and Answers
+
+**1. Why can an RNN not process a raw text string?**
+An RNN understands numbers, not words directly. So we convert words into numbers before giving them to the RNN.
+
+**2. Why do we use an embedding layer?**
+An embedding layer converts words into number vectors. It helps the model understand the meaning of words.
+
+**3. What is the role of h<sub>t-1</sub>?**
+h<sub>t-1</sub> is the hidden state from the previous time step. It carries information from earlier words to the current word.
+
+**4. Why are the same recurrent weights reused at every time step?**
+The same weights are used to process every word in a sentence. This reduces the number of parameters and keeps learning consistent.
+
+**5. What is h<sub>0</sub> and why?**
+h<sub>0</sub> is the initial hidden state, usually set to zeros. It gives the RNN a starting point before reading any words.
+
+**6. Why is the final hidden state used for classification?**
+The final hidden state contains information learned from the sequence. We use it to predict the sentence's class, such as positive or negative.
+
+**7. Why sigmoid in the last layer?**
+Sigmoid converts the output into a value between 0 and 1. This value can represent the probability of a positive or negative class.
+
 ## Setup
 
 ```bash
